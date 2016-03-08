@@ -1,0 +1,19 @@
+{
+  "name": "timestampapp",
+  "version": "1.0.0",
+  "description": "Time stamp app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naveedhd/timestampapp.git"
+  },
+  "author": "Naveed Usmani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naveedhd/timestampapp/issues"
+  },
+  "homepage": "https://github.com/naveedhd/timestampapp#readme"
+}
