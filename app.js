@@ -1,19 +1,28 @@
-var express = require('express');
-var app = express();
+var express = require('express'),
+    app = express();
+
+var monthLookup = {
+  'Jan': "January", 'Feb': "February", 'Mar': "March",
+  'Apr': "April",   'May': "May",      'Jun': "June",
+  'Jul': "July",    'Aug': "August",   'Sep': "September",
+  'Oct': "October", 'Nov': "November", 'Dec': "December"
+}
 
 app.param('timestamp', function(req, res, next, timestamp) {
-  // if timestamp found
   var timestampObj = {
     "unix": null,
     "natural": null
   };
 
   try {
-    //res.send(timestamp);
-    var date = new Date(timestamp);
-    console.log(date.getTime());
-    timestampObj.unix = "unixtime";
-    timestampObj.natural = "natural";
+    if (!isNaN(parseFloat(timestamp))) {
+      var date = new Date(parseFloat(timestamp) * 1000);
+    } else {
+      var date = new Date(timestamp);
+    }
+    timestampObj.unix = date.getTime() / 1000;
+    var dateStrLst = date.toString().split(' ');
+    timestampObj.natural = monthLookup[dateStrLst[1]] + " " + dateStrLst[2] + ", " + dateStrLst[3];
 
   } catch(err) {
     console.log("Error occured :" + err);
@@ -24,7 +33,6 @@ app.param('timestamp', function(req, res, next, timestamp) {
 });
 
 app.get('/', function(req, res) {
-  console.log("without params");
   res.send('Hello World');
 });
 
