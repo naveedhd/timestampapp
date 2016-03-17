@@ -33,7 +33,8 @@ app.param('timestamp', function(req, res, next, timestamp) {
 });
 
 app.get('/', function(req, res) {
-  res.send('Hello World');
+  //res.send('Hello World');
+  res.sendFile(__dirname + '/public/index.html');
 });
 
 app.get('/:timestamp', function (req, res) {});
