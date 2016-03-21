@@ -1,6 +1,8 @@
 var express = require('express'),
     app = express();
 
+
+var port = process.env.PORT || 3000;
 var monthLookup = {
   'Jan': "January", 'Feb': "February", 'Mar': "March",
   'Apr': "April",   'May': "May",      'Jun': "June",
@@ -39,6 +41,6 @@ app.get('/', function(req, res) {
 
 app.get('/:timestamp', function (req, res) {});
 
-app.listen(3000, function() {
-  console.log('Listening on 3000!');
+app.listen(port, function() {
+  console.log('Listening on '+ port + '!');
 });
