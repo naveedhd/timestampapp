@@ -34,8 +34,7 @@ app.param('timestamp', function(req, res, next, timestamp) {
 
 });
 
-app.get('/', function(req, res) {
-  //res.send('Hello World');
+app.get('/', function(req, res) {  
   res.sendFile(__dirname + '/public/index.html');
 });
 
